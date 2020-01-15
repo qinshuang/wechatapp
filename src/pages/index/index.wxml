@@ -11,7 +11,7 @@
     <view
       class="{{item.people >= 2 ? 'page-rank-main_item fighting' : 'page-rank-main_item waiting'}}" 
       wx:for="{{rooms}}" 
-      wx:key="{{index}}"
+      wx:key="index"
       catchtap="chooseRoom"
       data-index="{{index}}"
     >

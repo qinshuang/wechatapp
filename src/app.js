@@ -1,5 +1,5 @@
 const { subscriber } = require('./shared/util.js')
-const { appSecret } = require('./config.js')
+const { appSecret, appid } = require('./config.js')
 
 //app.js
 App({
@@ -24,13 +24,14 @@ App({
     const that = this
     wx.login({
       success(res) {
-        console.log('临时code', res.code, appSecret)
+        console.log('临时code', res.code, appSecret,appid)
         wx.cloud
           .callFunction({
             name: 'openid',
             data: {
               code: res.code,
-              secret: appSecret
+              secret: appSecret,
+              appid
             }
           })
           .then(res => {
