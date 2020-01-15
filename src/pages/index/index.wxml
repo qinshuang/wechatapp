@@ -1,0 +1,23 @@
+<!--pages/index/index.wxml-->
+<view class="page-rank container">
+  <view class="page-rank-header">
+    <view class="page-rank-header_btn" catchtap="createRoom">+ 新建房间</view>
+  </view>
+  <view class="page-rank-main">
+    <view class="page-rank-main_title" style="font-weight: bold;">
+      <text>房间</text>
+      <text>状态</text>
+    </view>
+    <view
+      class="{{item.people >= 2 ? 'page-rank-main_item fighting' : 'page-rank-main_item waiting'}}" 
+      wx:for="{{rooms}}" 
+      wx:key="{{index}}"
+      catchtap="chooseRoom"
+      data-index="{{index}}"
+    >
+      <text>{{item.roomid}}</text>
+      <text>{{item.people >= 2 ? '对战中' : '可进入'}}</text>
+    </view>
+  </view>
+  <component-toolbar route-path="pages/index/index"></component-toolbar>
+</view>
